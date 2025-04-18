@@ -25,11 +25,11 @@ st.markdown("""
 
 # Configurações do PostgreSQL na nuvem
 DB_CONFIG = {
-    'host': 'lingeringly-original-colt.data-1.use1.tembo.io',
-    'database': 'postgres',
-    'user': 'postgres',
-    'password': 'HD1nxUFQMj7Rse65',
-    'port': '5432',
+    'host': st.secrets["db"]["host"],
+    'database': st.secrets["db"]["database"],
+    'user': st.secrets["db"]["user"],
+    'password': st.secrets["db"]["password"],
+    'port': st.secrets["db"]["port"],
     'sslmode': 'require'
 }
 
