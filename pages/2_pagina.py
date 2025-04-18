@@ -4,6 +4,8 @@ import plotly.express as px
 from io import BytesIO
 from time import sleep
 
+
+
 # --- CONSTANTES E CONFIGURAÇÕES ---
 COLUNAS_METRICAS = {
     'valor': [
@@ -83,15 +85,18 @@ with st.sidebar:
             help="Clique para acessar a página de administração",
             use_container_width=True,
             ):
+            st.session_state.logged_in = True
+            st.session_state.is_admin = True
             st.switch_page("pages/pagina_admin.py")
-    if st.button(
-        "Logout",  # Ícone + texto
-        type="primary",  # Cor (primary, secondary)
-        help="Clique para sair",  # Tooltip
-        use_container_width=True,  # Ocupa toda a largura
-    ):
-        st.success("Você foi desconectado")
+    if st.button("Logout",
+                 use_container_width=True,
+                help="Clique para sair do sistema",
+                type="primary",
+                 ):
         st.session_state.logged_in = False
+        st.session_state.is_admin = False
+        st.success("Você foi desconectado com sucesso!")
+        sleep(1)
         st.switch_page("app.py")
     
 if st.session_state.get('is_admin'):
