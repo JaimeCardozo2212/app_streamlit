@@ -1,5 +1,5 @@
 import streamlit as st
-import psycopg2  # Mudei de sqlite3 para psycopg2
+import psycopg2
 import hashlib
 import os
 import re
@@ -184,7 +184,7 @@ def promote_to_admin(cpf):
         conn.close()
 
 # Interface de Login (mantida igual, apenas atualizei as queries)
-st.title("🔒 Bem Vindo ao Sistema")
+st.markdown("## 🔒 Bem Vindo ao Sistema")
 st.markdown("*Por favor, faça login ou registre-se para continuar*")
 
 tab_login, tab_register, tab_recover = st.tabs(["Login", "Cadastro", "Recuperar Senha"])
@@ -314,6 +314,10 @@ with tab_recover:
                     conn.close()
                     sleep(1)
                     st.switch_page("app.py")
+
+
+
+
 
 
 
